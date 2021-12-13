@@ -77,3 +77,8 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.username}>'
+
+
+@app.shell_context_processor
+def make_shell_context():
+    return {"db": db, "User": User, "Role": Role}
